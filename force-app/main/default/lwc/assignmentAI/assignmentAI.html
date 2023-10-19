@@ -1,0 +1,13 @@
+<template>
+    <lightning-input label="Search" value={searchTerm} onchange={handleSearchChange}></lightning-input>
+    <lightning-button label="Search" onclick={handleSearch}></lightning-button>
+
+    <lightning-file-upload label="Upload Files" accept={acceptedFormats} record-id={recordId} onuploadfinished={uploadFinishedHandler}></lightning-file-upload>
+    <template if:true={searcResults}>
+        <ul>
+            <template for:each={searchResults} for:item="result">
+                <li key={result.Id}>{result.Name}</li>
+            </template>
+        </ul>
+    </template>
+</template>
